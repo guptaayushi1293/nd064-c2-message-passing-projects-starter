@@ -1,0 +1,8 @@
+kafka-python==2.0.2
+grpcio-tools==1.33.1
+psycopg2-binary==2.9.5
+marshmallow==3.7.1
+marshmallow-sqlalchemy==0.23.1
+grpcio
+protobuf
+Faker

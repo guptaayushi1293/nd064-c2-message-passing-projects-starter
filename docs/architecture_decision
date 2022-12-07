@@ -1,0 +1,26 @@
+Architecture Design Decisions
+-------------------------------
+
+
+Three message passing techniques were adopted, namely:
+- REST APIs
+- Message Queues (Kafka)
+- GRPC
+
+The Udaconnect frontend client use REST APIs provided by Udaconnect API to perform all the functionalities such as -
+1. Show who met whom during a conference.
+2. Add details of the person.
+3. Get details of person.
+4. Get details of a location.
+5. Use grpc library to inject location after every several intervals (An improvement).
+
+Reason to choose REST API -
+1. It follows API conventions such as GET to fetch the resource, POST to create a resource, PATCH/PUT to update one.
+2. We have simple data models for Udaconnect and REST API support json to structure our data models.
+3. REST API shows completeness of the request either completed or timeout or shows error. This makes interaction really easy.
+
+Frontend or mobile devices can ingest location at regular intervals using GRPC and it will receive the data and publish it in kafka queue.
+These location messages will be published to kafka and the consumer will pick them up and add those in database.
+These messages will remain persisted even if DB is down and can be consumed again once the DB is up and ready to take the traffic.
+Kafka message queues can handle large amount of data and it is distributed in nature.
+Hence, it provides high availability with minimum latency.

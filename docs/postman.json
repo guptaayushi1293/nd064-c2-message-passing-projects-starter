@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "ba3715a6-d581-4068-8b05-f6ab5fb16e31",
+		"name": "UdaConnect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "601766"
+	},
+	"item": [
+		{
+			"name": "Get all persons from DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.178.31:30004/api/persons",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"178",
+						"31"
+					],
+					"port": "30004",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a person by Id from DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.178.31:30004/api/persons/1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"178",
+						"31"
+					],
+					"port": "30004",
+					"path": [
+						"api",
+						"persons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a person in DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"company_name\": \"Alpha Omega Upholstery\",\n    \"first_name\": \"Tacox\",\n    \"last_name\": \"Fargoy\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{udaconnect}}/api/persons",
+					"host": [
+						"{{udaconnect}}"
+					],
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find connections of a person using start_date and end_date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.178.31:30003/api/persons/1/connection?start_date=2020-07-07&end_date=2020-07-08&distance=1",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"178",
+						"31"
+					],
+					"port": "30003",
+					"path": [
+						"api",
+						"persons",
+						"1",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2020-07-07"
+						},
+						{
+							"key": "end_date",
+							"value": "2020-07-08"
+						},
+						{
+							"key": "distance",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
