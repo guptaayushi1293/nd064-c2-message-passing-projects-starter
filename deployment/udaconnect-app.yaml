@@ -6,7 +6,7 @@ metadata:
   name: udaconnect-app
 spec:
   ports:
-  - name: "3000"
+  - name: 3000-30000
     port: 3000
     targetPort: 3000
     nodePort: 30000
@@ -31,14 +31,14 @@ spec:
         service: udaconnect-app
     spec:
       containers:
-      - image: udacity/nd064-udaconnect-app:latest
+      - image: gupta1yushi/udaconnect-app:latest
         name: udaconnect-app
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "64m"
+            memory: "512Mi"
+            cpu: "128m"
           limits:
-            memory: "256Mi"
+            memory: "512Mi"
             cpu: "256m"
       restartPolicy: Always
